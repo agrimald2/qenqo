@@ -18,18 +18,18 @@ import { Head } from '@inertiajs/vue3';
                             </svg>
                         </div>
                         <input type="text" id="simple-search" v-model="searchQuery" @input="fetch"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full pl-10 p-2.5 dark:placeholder-gray-400  dark:focus:ring-purple-500 dark:focus:border-purple-500"
                             placeholder="Nombre" required>
                     </div>
                     <select id="families" name="families" v-model="family_id" @change="fetch"
-                        class="ml-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        class="ml-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5 dark:placeholder-gray-400  dark:focus:ring-purple-500 dark:focus:border-purple-500">
                         <option :value="0" class="text-gray-900" selected>Todas</option>
                         <option v-for="family in families" :value="family.id" class="text-gray-900">{{ family.name }}
                         </option>
                     </select>
                 </div>
                 <button type="button" @click="showModal('createFamily')"
-                    class="text-white bg-indigo-800 hover:bg-[#050708]/80 focus:ring-4 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center  dark:focus:ring-gray-600 mr-2 mb-2">
+                    class="text-white bg-purple-800 hover:bg-[#050708]/80 focus:ring-4 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center  dark:focus:ring-gray-600 mr-2 mb-2">
                     <span class="hidden md:flex"> Nuevo {{ family_id }}
                     </span>
                     <i class="ml-2 fa-solid fa-user-plus font-xl"></i>

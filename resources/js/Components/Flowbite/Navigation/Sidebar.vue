@@ -18,15 +18,15 @@
         <div class="absolute bottom-0 left-0 justify-center p-4 space-x-4 w-full lg:flex bg-white  z-20">
             <div class="inline-flex rounded-md shadow-sm" role="group">
                 <button type="button"
-                    class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-l-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700      dark:focus:ring-blue-500 dark:focus:text-white">
+                    class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-l-lg hover:bg-gray-100 hover:text-purple-700 focus:z-10 focus:ring-2 focus:ring-purple-700 focus:text-purple-700      dark:focus:ring-purple-500 dark:focus:text-white">
                     <i class="fa-solid fa-gear"></i>
                 </button>
                 <button type="button"
-                    class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border-t border-b border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700      dark:focus:ring-blue-500 dark:focus:text-white">
+                    class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border-t border-b border-gray-200 hover:bg-gray-100 hover:text-purple-700 focus:z-10 focus:ring-2 focus:ring-purple-700 focus:text-purple-700      dark:focus:ring-purple-500 dark:focus:text-white">
                     <i class="fa-solid fa-user"></i>
                 </button>
                 <button type="button" @click="goTo('')"
-                    class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-r-md hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700      dark:focus:ring-blue-500 dark:focus:text-white">
+                    class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-r-md hover:bg-gray-100 hover:text-purple-700 focus:z-10 focus:ring-2 focus:ring-purple-700 focus:text-purple-700      dark:focus:ring-purple-500 dark:focus:text-white">
                     <i class="fa-solid fa-right-from-bracket"></i>
                 </button>
             </div>

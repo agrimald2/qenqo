@@ -31,4 +31,27 @@ class ScheduleController extends Controller
         $schedules = Schedule::with('modality')->where('user_id', $user_id)->get();
         return response()->json($schedules);
     }
+
+    public function addScheduleToUser(Request $request){
+        $schedule = new Schedule;
+        $schedule->user_id = $request->user_id;
+        $schedule->modality_id = $request->modality_id;
+        $schedule->week_day = $request->week_day;
+        $schedule->start_time = $request->start_time;
+        $schedule->end_time = $request->end_time;
+        $schedule->save();
+        return response()->json($schedule);
+    }
+
+    public function deleteSchedule($id){
+        $schedule = Schedule::find($id);
+        if($schedule){
+            $schedule->delete();
+            return response()->json(['message' => 'Schedule deleted successfully']);
+        } else {
+            return response()->json(['message' => 'Schedule not found'], 404);
+        }
+    }
+    
+    
 }

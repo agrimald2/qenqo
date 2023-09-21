@@ -23,7 +23,7 @@
                                     <i class="fa-solid fa-signature"></i>
                                 </div>
                                 <input type="text" name="name" id="name" v-model="data"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5    dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full pl-10 p-2.5    dark:placeholder-gray-400  dark:focus:ring-purple-500 dark:focus:border-purple-500"
                                     placeholder="John Doe">
                             </div>
                         </div>
@@ -33,7 +33,7 @@
                             </label>
                             <div>
                                 <select id="customerTypes" name="customer_type_id" v-model="data"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5   dark:placeholder-gray-400  dark:focus:ring-purple-500 dark:focus:border-purple-500">
                                     <option v-for="customer_type in customer_types" :value="customer_type.id"
                                         class="text-gray-900">
                                         {{ customer_type.name }}</option>
@@ -52,13 +52,13 @@
                                     </div>
                                     <input type="text" name="document_number" id="document_number"
                                         v-model="data"
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5    dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full pl-10 p-2.5    dark:placeholder-gray-400  dark:focus:ring-purple-500 dark:focus:border-purple-500"
                                         placeholder="John Doe">
                                 </div>
                             </div>
                         </div>
                         <button type="button" @click="submit"
-                            class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center    uppercase">
+                            class="w-full text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center    uppercase">
                             <span v-if="customer.deleted_at">
                                 {{ customer.deleted_at ? 'Restaurar' : 'Editar' }}
                             </span>

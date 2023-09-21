@@ -62,6 +62,8 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/user/{id}/schedule', [ScheduleController::class, 'seeUserSchedule']);
     Route::get('/getUserSchedules', [ScheduleController::class, 'getUserSchedules']);
+    Route::post('/addScheduleToUser', [ScheduleController::class, 'addScheduleToUser']);
+    Route::delete('/deleteSchedule/{id}', [ScheduleController::class, 'deleteSchedule']);
 
 });
 
