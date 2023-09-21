@@ -23,7 +23,6 @@ return new class extends Migration
             $table->unsignedBigInteger('branch_id');
             $table->unsignedBigInteger('appointments_status_id');
             $table->string('created_by')->nullable();
-            $table->timestamps();
             $table->timestamp('reescheduled_at')->nullable();
             $table->string('reescheduled_by')->nullable();
             $table->timestamp('canceled_at')->nullable();

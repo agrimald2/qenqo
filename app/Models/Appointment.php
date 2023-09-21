@@ -13,7 +13,7 @@ use App\Models\AppointmentStatus;
 
 class Appointment extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     public function schedule()
     {

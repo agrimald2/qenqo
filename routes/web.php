@@ -7,6 +7,7 @@ use App\Http\Controllers\SubFamilyController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\RateController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ScheduleController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -58,6 +59,10 @@ Route::middleware('auth')->group(function () {
     
     Route::resource('/users', UserController::class);
     Route::get('/getUsers', [UserController::class, 'getUsers']);
+
+    Route::get('/user/{id}/schedule', [ScheduleController::class, 'seeUserSchedule']);
+    Route::get('/getUserSchedules', [ScheduleController::class, 'getUserSchedules']);
+
 });
 
 

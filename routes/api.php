@@ -31,5 +31,6 @@ Route::post('/addRateToCustomer', [CustomerRatesController::class, 'addRateToCus
 Route::get('/getCustomerRate', [CustomerRatesController::class, 'getCustomerRate']);
 
 Route::get('/getRoles', [UtilitiesController::class, 'getRoles']);
+Route::get('/getModalities', [UtilitiesController::class, 'getModalities']);
 
 

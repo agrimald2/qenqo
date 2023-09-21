@@ -1,10 +1,4 @@
 <script setup>
-import Checkbox from '@/Components/Checkbox.vue';
-import GuestLayout from '@/Layouts/GuestLayout.vue';
-import InputError from '@/Components/InputError.vue';
-import InputLabel from '@/Components/InputLabel.vue';
-import PrimaryButton from '@/Components/PrimaryButton.vue';
-import TextInput from '@/Components/TextInput.vue';
 import { Head, Link, useForm } from '@inertiajs/vue3';
 
 defineProps({
@@ -30,65 +24,25 @@ const submit = () => {
 </script>
 
 <template>
-    <GuestLayout>
-        <Head title="Log in" />
-
-        <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
-            {{ status }}
+    <body class="bg-gray-700 ">
+        <div class="flex min-h-screen items-center justify-center">
+            <div class="min-h-1/2 bg-[#2A1E36]/80 border border-gray-900 rounded-2xl">
+                <div
+                    class="mx-4 sm:mx-24 md:mx-34 lg:mx-56 mx-auto  flex items-center space-y-4 py-16 font-semibold text-gray-500 flex-col">
+                    <img :src="'/logo.png'" alt="qenqo-logo" style="width: auto;">
+                    <h1 class="text-white text-2xl">iniciar sesion en <strong> Qenqo </strong></h1>
+                    <form @submit.prevent="submit" class="py-2">
+                        <input v-model="form.email"
+                            class="my-2 w-full p-2 bg-gray-900 rounded-md  border border-gray-700 focus:border-blue-700"
+                            placeholder="Usuario" type="email" name="correo" id="">
+                        <input v-model="form.password"
+                            class="my-2 w-full p-2 bg-gray-900 rounded-md border border-gray-700 " placeholder="Contraseña"
+                            type="password" name="correo" id="">
+                        <input :disabled="form.processing"
+                            class="cursor-pointer my-2 w-full p-2 bg-gray-50 rounded-full font-bold text-gray-900 border border-gray-700 "
+                            type="submit" name="correo" id="">
+                    </form>
+                </div>
+            </div>
         </div>
-
-        <form @submit.prevent="submit">
-            <div>
-                <InputLabel for="email" value="Email" />
-
-                <TextInput
-                    id="email"
-                    type="email"
-                    class="mt-1 block w-full"
-                    v-model="form.email"
-                    required
-                    autofocus
-                    autocomplete="username"
-                />
-
-                <InputError class="mt-2" :message="form.errors.email" />
-            </div>
-
-            <div class="mt-4">
-                <InputLabel for="password" value="Password" />
-
-                <TextInput
-                    id="password"
-                    type="password"
-                    class="mt-1 block w-full"
-                    v-model="form.password"
-                    required
-                    autocomplete="current-password"
-                />
-
-                <InputError class="mt-2" :message="form.errors.password" />
-            </div>
-
-            <div class="block mt-4">
-                <label class="flex items-center">
-                    <Checkbox name="remember" v-model:checked="form.remember" />
-                    <span class="ml-2 text-sm text-gray-600">Remember me</span>
-                </label>
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                <Link
-                    v-if="canResetPassword"
-                    :href="route('password.request')"
-                    class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                >
-                    Forgot your password?
-                </Link>
-
-                <PrimaryButton class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    Log in
-                </PrimaryButton>
-            </div>
-        </form>
-    </GuestLayout>
-</template>
+    </body></template>
