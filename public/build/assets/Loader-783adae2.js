@@ -1,0 +1,1 @@
+import{_ as e}from"./_plugin-vue_export-helper-c27b6911.js";import{o as _,f as o}from"./app-a7ca0acf.js";const c={},s={class:"loader"};function a(t,d){return _(),o("span",s)}const p=e(c,[["render",a],["__scopeId","data-v-cda947dd"]]);export{p as L};
