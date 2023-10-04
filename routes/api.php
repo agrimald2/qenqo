@@ -23,10 +23,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-Route::resource('/customers', CustomerController::class);
 Route::get('/getCustomers', [CustomerController::class, 'getCustomers']);
 
-Route::post('/addRateToCustomer', [CustomerRatesController::class, 'addRateToCustomer']);
 Route::get('/getCustomerRate', [CustomerRatesController::class, 'getCustomerRate']);
 
 Route::get('/getRoles', [UtilitiesController::class, 'getRoles']);
