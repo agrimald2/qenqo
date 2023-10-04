@@ -7,16 +7,21 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Role;
 use App\Models\Modality;
+use App\Models\PaymentMethod;
 use Log;
 
 class UtilitiesController extends Controller
 {  
     public function getRoles(){
-        $roles = Role::all();
-        return response()->json($roles, 200);
+        $data = Role::all();
+        return response()->json($data, 200);
     }
     public function getModalities(){
-        $modalities = Modality::all();
-        return response()->json($modalities, 200);
+        $data = Modality::all();
+        return response()->json($data, 200);
+    }
+    public function getPaymentMethods(){
+        $data = PaymentMethod::all();
+        return response()->json($data, 200);
     }
 }

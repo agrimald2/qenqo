@@ -33,7 +33,12 @@ class CustomerRate extends Model
 
     public function status()
     {
-        return $this->belongsTo(CustomerRateStatus::class);
+        return $this->belongsTo(CustomerRateStatus::class, 'customer_rate_status_id');
+    }
+
+    public function customerPayments()
+    {
+        return $this->hasMany(CustomerPayment::class, 'customer_rate_id');
     }
 }
 

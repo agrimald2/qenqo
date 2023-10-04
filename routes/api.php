@@ -32,5 +32,6 @@ Route::get('/getCustomerRate', [CustomerRatesController::class, 'getCustomerRate
 
 Route::get('/getRoles', [UtilitiesController::class, 'getRoles']);
 Route::get('/getModalities', [UtilitiesController::class, 'getModalities']);
+Route::get('/getPaymentMethods', [UtilitiesController::class, 'getPaymentMethods']);
 
-
+Route::post('/addPaymentToCustomerRate', [CustomerRatesController::class, 'addPaymentToCustomerRate']);

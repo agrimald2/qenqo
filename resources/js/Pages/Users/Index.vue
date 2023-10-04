@@ -73,9 +73,10 @@ import { Head } from '@inertiajs/vue3';
                                     class="fa-solid fa-square-pen text-3xl text-yellow-500 cursor-pointer ml-2"></i>
                                 <i @click="deleteInsuranceCompany(insurance_company.id)"
                                     class="fa-solid fa-square-xmark text-3xl text-red-500 cursor-pointer ml-2"></i>
-                                <i v-if="user.role.id == 2"
-                                    @click="showModal('editInsuranceCompany' + insurance_company.id)"
+                                <a :href="'/user/'+user.id+'/schedule'">
+                                    <i v-if="user.role.id == 2" 
                                     class="fa-solid fa-calendar-days text-3xl text-green-500 cursor-pointer ml-2"></i>
+                                </a>
                             </td>
                         </tr>
                     </tbody>

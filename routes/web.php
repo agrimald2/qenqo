@@ -8,6 +8,7 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\RateController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ScheduleController;
+use App\Http\Controllers\CustomerRatesController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -56,6 +57,11 @@ Route::middleware('auth')->group(function () {
     
     Route::resource('/customers', CustomerController::class);
     Route::get('/getCustomers', [CustomerController::class, 'getCustomers']);
+    Route::get('/customers/{id}/rates', [CustomerRatesController::class, 'showCustomerRates']);
+    Route::get('/customers/rates/{id}', [CustomerRatesController::class, 'showCustomerRate']);
+    
+    Route::post('/addPaymentToCustomerRate', [CustomerRatesController::class, 'addPaymentToCustomerRate']);
+    Route::post('/customers/rates/payment/{id}', [CustomerRatesController::class, 'deletePaymentToCustomerRate']);
     
     Route::resource('/users', UserController::class);
     Route::get('/getUsers', [UserController::class, 'getUsers']);
@@ -67,7 +73,9 @@ Route::middleware('auth')->group(function () {
 
 });
 
-
+/**
+ * @todo Assisted_appointments relation with appointment
+ */
 
 
 

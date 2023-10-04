@@ -22,20 +22,26 @@ import { Head } from '@inertiajs/vue3';
                 </button>
             </div>
             <div class="overflow-x-auto">
-                <table v-if="customers" class="w-full text-sm text-left text-gray-500  table">
+                <table v-if="customer_rates" class="w-full text-sm text-left text-gray-500  table">
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50  ">
                         <tr>
                             <th scope="col" class="px-6 py-3">
-                                Nombre
+                                Tarifa
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Celular
+                                Sesiones
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Email
+                                Ev. Nutricional
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Tarifa Activa
+                                F. Inicio
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                F. Final
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Status
                             </th>
                             <th scope="col" class="px-6 py-3">
                                 Acciones
@@ -43,42 +49,46 @@ import { Head } from '@inertiajs/vue3';
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="(customer, index) in customers" class="bg-white border-b   hover:bg-gray-50 ">
+                        <tr v-for="(rate, index) in customer_rates" class="bg-white border-b   hover:bg-gray-50 ">
                             <th scope="row" class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap">
-                                <div class="text-base font-semibold">
-                                    {{ customer.name }} {{ customer.lastname }}
-                                    <br>
-                                    {{ customer.dni }}
-                                </div>
+                                <a :href="'/customers/rates/' + rate.id">
+                                    <div class="text-base font-semibold">
+                                        {{ rate.rate_name }}
+                                        <br>
+                                        S/{{ rate.rate_total_price }}
+                                    </div>
+                                </a>
                             </th>
                             <td class="px-6 py-4">
-                                {{ customer.phone }}
+                                T - {{ rate.rate_total_sessions }} <br>
+                                C - {{ (rate.rate_total_sessions * rate.total_consumed) / rate.rate_total_price }} <br>
+                                P - {{ (rate.rate_total_sessions * rate.total_payed) / rate.rate_total_price }}
                             </td>
-                            <td class="px-6 py-4">
-                                {{ customer.birthdate }}
+                            <td v-if="rate.nutritional_assessment_total > 0" class="px-6 py-4">
+                                P - {{ rate.nutritional_assessment_total }}
                                 <br>
-                                {{ customer.sex }}
-                            </td>
-                            <td class="px-6 py-4" v-if="customer.last_customer_rate">
-                                <span class="text-gray-700 whitespace-nowrap"> {{ customer.last_customer_rate.rate_name }} -
-                                    S/{{ customer.last_customer_rate.rate_total_price }}</span> <br>
-                                {{ customer.last_customer_rate.rate_total_sessions }} | {{
-                                    (customer.last_customer_rate.rate_total_sessions *
-                                        customer.last_customer_rate.total_consumed) / customer.last_customer_rate.rate_total_price
-                                }}
+                                C - {{ rate.nutritional_assessment_consumed }}
                             </td>
                             <td v-else class="px-6 py-4">
-                                NO TIENE
+                                NO Incluye
                             </td>
                             <td class="px-6 py-4">
-                                <a :href="'/customers/' + customer.id + '/rates'">
-                                    <i class="fa-solid fa-brands fa-ethereum text-3xl text-green-500 cursor-pointer ml-2"></i>
-                                </a>
-                                <i @click="showModal('editInsuranceCompany' + insurance_company.id)"
-                                    class="fa-solid fa-square-pen text-3xl text-yellow-500 cursor-pointer ml-2"></i>
-                                <i @click="deleteInsuranceCompany(insurance_company.id)"
-                                    class="fa-solid fa-square-xmark text-3xl text-red-500 cursor-pointer ml-2"></i>
+                                {{ rate.start_day }}
                             </td>
+                            <td class="px-6 py-4">
+                                {{ rate.end_day }}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{ rate.status.name }}
+                            </td>
+                            <td class="px-6 py-4">
+                                <i class="fa-brands fa-cc-apple-pay text-3xl text-yellow-500 cursor-pointer ml-2"
+                                    @click="showModal('PayCustomerRate' + rate.id)"></i>
+                                <i class="fa-solid fa-face-frown text-3xl text-red-500 cursor-pointer ml-2"></i>
+                                <i @click="deleteInsuranceCompany(insurance_company.id)"
+                                    class="fa-solid fa-square-xmark text-3xl text-red-800 cursor-pointer ml-2"></i>
+                            </td>
+                            <PayCustomerRate :id="'PayCustomerRate' + rate.id" :rate="rate" />
                         </tr>
                     </tbody>
                 </table>
@@ -92,12 +102,13 @@ import { Head } from '@inertiajs/vue3';
 <script>
 import Breadcrumb from '@/Components/Flowbite/Navigation/Breadcrumb.vue';
 import Loader from '@/Components/Loader.vue';
+import PayCustomerRate from './PayCustomerRate.vue'
 export default {
     components: {
         Breadcrumb,
         Loader
     },
-    props: ['breadcrumbs'],
+    props: ['breadcrumbs', 'customer_rates'],
     data() {
         return {
             param: null,

@@ -16,6 +16,7 @@ use Database\Seeders\ModalitiesTableSeeder;
 use Database\Seeders\AppointmentStatusesTableSeeder;
 use Database\Seeders\PaymentMethodsTableSeeder;
 use Database\Seeders\SchedulesTableSeeder;
+use Database\Seeders\PaymentStatusesTable;
 
 class DatabaseSeeder extends Seeder
 {
@@ -37,6 +38,8 @@ class DatabaseSeeder extends Seeder
             AppointmentStatusesTableSeeder::class,
             PaymentMethodsTableSeeder::class,
             SchedulesTableSeeder::class,
+            CustomerRatesTableSeeder::class,
+            PaymentStatusesTable::class,
         ]);
     }
 }
